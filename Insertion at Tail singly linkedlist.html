@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+<script type="text/javascript">
+  class NewNode
+  {
+    constructor(value_of_Data_part)
+    {
+      this.data_part =value_of_Data_part;
+      this.next_part = null;
+    }
+  }
+  class linked_list
+  {
+    constructor()
+    {
+      this.head_point=null;
+    }
+    create_node_at_End(value_of_data_part)
+    {
+          let CreateNewNode =new NewNode(value_of_data_part);
+          if (this.head_point == null)
+          {
+              CreateNewNode.next_part=null;
+              this.head_point=CreateNewNode;
+          }
+          else
+          {
+              let temp_pointer=this.head_point;
+              while(temp_pointer.next_part != null)
+              {
+                  temp_pointer=temp_pointer.next_part;
+              }
+              temp_pointer.next_part=CreateNewNode;
+              CreateNewNode.next_part=null;
+          }
+    }
+    display()
+    {
+        if(this.head_point==null)
+        {
+            document.write("empty");
+        }
+        else
+        {
+            let temp_pointer=this.head_point;
+            while(temp_pointer!=null)
+            {
+                document.write(temp_pointer.data_part+  " ");
+                temp_pointer=temp_pointer.next_part;
+            }
+            document.write("<br/>");
+
+        }
+    }
+  }
+    let ob=new linked_list();
+    document.write("Inserted Element At End: <br/>");
+    ob.create_node_at_End(21);
+    ob.display();
+    ob.create_node_at_End(7);
+    ob.display();
+    ob.create_node_at_End(8);
+    ob.display();
+    ob.create_node_at_End(50);
+    ob.display();
+    document.write("<br/> ");
+</script>
+  </body>
+</html>
